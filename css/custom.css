@@ -1,0 +1,22 @@
+.pixel {
+  font-family: 'Pixelify Sans', sans-serif;
+}
+
+.portfolio h5 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.portfolio h6 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.parallax-container {
+  min-height: 300px;
+  line-height: 0;
+  height: auto;
+}
+
