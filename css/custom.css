@@ -20,3 +20,16 @@
   height: auto;
 }
 
+.parallax img {
+  opacity: 0.8 !important;
+}
+
+.partners h5 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.partners img {
+  max-height: 100px;
+  max-width: 150px;
+}
