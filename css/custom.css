@@ -58,9 +58,18 @@ main {
   text-align: center;
 }
 
+
 .card-title {
   font-weight: 400 !important;
   text-align: center;
+}
+
+.card-title i {
+  margin-right: 5px;
+}
+
+.aboutus i {
+  margin-right: 5px;
 }
 
 .card {
@@ -83,4 +92,8 @@ main {
 
 .contact p {
   text-align: center;
+}
+
+.contact i {
+  margin-right: 5px;
 }
