@@ -1,5 +1,27 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  padding-top: 0px;
+}
+
+.page-footer > row {
+  margin-bottom: 0px;
+}
+
 .pixel {
   font-family: 'Pixelify Sans', sans-serif;
+}
+
+.brand-logo {
+  margin-left: 15px;
 }
 
 .portfolio h5 {
@@ -9,8 +31,6 @@
 }
 
 .portfolio h6 {
-  text-align: center;
-  text-transform: uppercase;
   margin-bottom: 15px;
 }
 
@@ -32,4 +52,22 @@
 .partners img {
   max-height: 100px;
   max-width: 150px;
+}
+
+.services h5 {
+  text-align: center;
+}
+
+.aboutus h5 {
+  text-align: center;
+}
+
+.aboutus p {
+  text-align: center;
+  font-size: 20px;
+}
+
+.contact h5 {
+  margin-bottom: 15px;
+  text-align: center;
 }
