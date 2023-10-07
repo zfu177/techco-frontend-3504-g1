@@ -63,11 +63,15 @@ main {
 }
 
 .aboutus p {
-  text-align: center;
+  text-align: left;
   font-size: 20px;
 }
 
 .contact h5 {
   margin-bottom: 15px;
+  text-align: center;
+}
+
+.contact p {
   text-align: center;
 }
