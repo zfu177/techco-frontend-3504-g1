@@ -49,9 +49,10 @@ main {
   margin-bottom: 15px;
 }
 
+/* https://www.w3schools.com/howto/howto_css_image_responsive.asp */
 .partners img {
-  max-height: 100px;
-  max-width: 150px;
+  width: 100%;
+  height: auto;
 }
 
 .services h5 {
