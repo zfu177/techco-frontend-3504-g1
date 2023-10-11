@@ -19,20 +19,23 @@
   </head>
   <main>
     <nav>
-      <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper light-blue">
+      <div class="navbar-fixed light-blue">
             <a href="index.html" class="brand-logo pixel">TechCo.</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
               <li><a href="index.html">Home</a></li>
               <li><a href="services.html">Services</a></li>
               <li><a href="contact.html">Contact</a></li>
-              <li class="active"><a href="about.html">About</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
-          </div>
-        </nav>
       </div>
     </nav>
+    <ul class="sidenav light-blue" id="mobile-demo">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
 
     <div class="container aboutus">
       <div class="row">

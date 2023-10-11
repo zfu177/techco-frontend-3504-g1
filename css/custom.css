@@ -97,3 +97,7 @@ main {
 .contact i {
   margin-right: 5px;
 }
+
+.sidenav {
+  width: 150px;
+}
