@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # You can change this to your main branch name
+      - main  # You can change this to your main branch name.
 
 jobs:
   deploy:
