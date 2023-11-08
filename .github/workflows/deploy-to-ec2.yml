@@ -11,18 +11,13 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Create known_hosts file
+      
+      - name: Update known_hosts file
         run: |
           mkdir -p ~/.ssh
-          touch ~/.ssh/known_hosts
-        # Continue even if file creation fails
-        continue-on-error: true
-
-      - name: Remove old entry from known_hosts
-        run: |
-          ssh-keygen -R ec2-54-164-144-163.compute-1.amazonaws.com
-        continue-on-error: true  # Continue even if removing entry fails
+          ssh-keyscan -H ec2-54-164-144-163.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       
       - name: Set Up SSH Key
         env:
@@ -36,6 +31,6 @@ jobs:
 
       - name: Deploy Code to EC2
         run: |
-          sudo scp -r ./* ec2-user@ec2-54-164-144-163.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1
+          sudo scp -v -r ./* ec2-user@ec2-54-164-144-163.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
