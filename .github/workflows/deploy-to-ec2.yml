@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+
+      - name: Remove old entry from known_hosts
+        run: |
+          ssh-keygen -R ec2-54-164-144-163.compute-1.amazonaws.com
+        continue-on-error: true  # Continue even if removing entry fails
       
       - name: Set Up SSH Key
         run: |
