@@ -21,6 +21,6 @@ jobs:
 
       - name: Deploy Code to EC2
         run: |
-          scp -r ./* ec2-user@ec2-54-164-144-163.compute-1.amazonaws.com /var/www/html/techco-frontend-3504-g1
+          sudo scp -r ./* ec2-user@ec2-54-164-144-163.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
