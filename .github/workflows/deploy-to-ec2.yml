@@ -24,13 +24,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY"
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ec2-3-91-76-208.compute-1.amazonaws.com >> ~/.ssh/known_hosts  # Replace with your EC2 instance IP address
 
       - name: Deploy Code to EC2
         run: |
-          sudo scp -v -r -i $SSH_PRIVATE_KEY ./* ec2-3-91-76-208.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          scp -v -r -i ~/.ssh/id_rsa ./* ec2-user@ec2-3-91-76-208.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1/
