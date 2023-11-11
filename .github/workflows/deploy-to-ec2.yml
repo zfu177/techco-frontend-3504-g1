@@ -1,0 +1,33 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # You can change this to your main branch name.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Update known_hosts file
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ec2-3-90-232-255.compute-1.amazonaws.com >> ~/.ssh/known_hosts
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      
+      - name: Set Up SSH Key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ec2-3-90-232-255.compute-1.amazonaws.com >> ~/.ssh/known_hosts  # Replace with your EC2 instance IP address
+
+      - name: Deploy Code to EC2
+        run: |
+          scp -v -r -i ~/.ssh/id_rsa ./* ec2-user@ec2-3-90-232-255.compute-1.amazonaws.com:/var/www/html/techco-frontend-3504-g1/
