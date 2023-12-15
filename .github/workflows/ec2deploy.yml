@@ -32,8 +32,13 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo apt-get -y update
-            if [ ! -f "/etc/systemd/system/apache2.service" ]; then sudo apt-get install -y apache2 
-            sudo systemctl start apache2
-            sudo systemctl enable apache2
-            sudo mv /home/ubuntu/web/* /var/www/html 
+            f [ ! -f "/etc/systemd/system/apache2.service" ]; then
+              sudo apt-get -y update
+              sudo apt-get install -y apache2
+              sudo systemctl start apache2
+              sudo systemctl enable apache2
+            else
+                sudo mv /home/ubuntu/web/* /var/www/html
+                sudo systemctl restart apache2
+            fi
+            
