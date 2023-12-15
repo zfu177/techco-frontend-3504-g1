@@ -21,7 +21,9 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ec2-54-166-135-99.compute-1.amazonaws.com
           REMOTE_USER: ubuntu
-          TARGET: /var/www/html/
+          SCRIPT_BEFORE: mkdir /home/ubuntu/web/
+          TARGET: /home/ubuntu/web/
+        
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
@@ -34,5 +36,4 @@ jobs:
             sudo apt-get install -y apache2
             sudo systemctl start apache2
             sudo systemctl enable apache2
-            cd home
-            sudo mv * /var/www/html
+            sudo mv /home/ubuntu/web/* /var/www/html 
